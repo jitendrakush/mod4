@@ -1,0 +1,158 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+
+public class test1 {
+	
+	public static void main(String[] args){
+	
+	WebDriver driver=new FirefoxDriver();
+	 
+	driver.get("https://demo.opencart.com/");
+
+	String Expected="Your Store";
+	
+	if(Expected.contentEquals(driver.getTitle())){
+		System.out.println("Title is verified");
+	}
+	else{
+		System.out.println("Title is not verified");
+	}
+	
+	driver.findElement(By.xpath(".//*[@id='cart']/button")).click();
+	
+//	String actual1="driver.findElement(By.xpath(".//*[@id='cart']/button")).click()";
+	String expected1="Your shopping cart is empty!";
+	String Actual1=driver.findElement(By.xpath(".//*[@id='cart']/button")).getText();
+	
+	if(expected1.contentEquals(Actual1)){
+		System.out.println("Title 1 is verified");
+	}
+	else{
+		System.out.println("Title 1 is not verified");
+	}
+	
+	driver.findElement(By.xpath("html/body/footer/div/div/div[2]/ul/li[1]/a")).click();
+	
+	String expected2="Contact Us";
+	String Actual2=driver.findElement(By.xpath(".//*[@id='content']/h1")).getText();
+	
+	if(expected2.contentEquals(Actual2)){
+		System.out.println("Title 2 is verified");
+	}
+	else{
+		System.out.println("Title 2 is not verified");
+	}
+	
+	
+	
+	String expected3="Address 1";
+	String Actual3=driver.findElement(By.xpath(".//*[@id='content']/div/div/div/div[1]/address")).getText();
+	
+	if(expected3.contentEquals(Actual3)){
+		System.out.println("address 1 is verified");
+	}
+	else{
+		System.out.println("address 1 is not verified");
+	}
+	
+	String expected4="Telephone";
+	String Actual4=driver.findElement(By.xpath(".//*[@id='content']/div/div/div/div[2]")).getText();
+	
+	if(expected4.contentEquals(Actual4)){
+		System.out.println("telephone is verified");
+	}
+	else{
+		System.out.println("telephone is not verified");
+	}
+	
+	driver.findElement(By.xpath(".//*[@id='input-name']")).sendKeys("Jitendra");
+	driver.findElement(By.xpath(".//*[@id='input-email']")).sendKeys("Jitendgmail.com");
+	
+	driver.findElement(By.xpath(".//*[@id='content']/form/div/div/input")).submit();
+	
+	String expected5="E-Mail Address does not appear to be valid!";
+	String Actual5=driver.findElement(By.xpath(".//*[@id='content']/form/fieldset/div[2]/div/div")).getText();
+	
+	if(expected5.contentEquals(Actual5)){
+		System.out.println("Email error is verified");
+	}
+	else{
+		System.out.println("Email error is not verified");
+	}
+	
+	driver.findElement(By.xpath(".//*[@id='input-name']")).sendKeys("Jitendra");
+	driver.findElement(By.xpath(".//*[@id='input-email']")).sendKeys("Jitendra@gmail.com");
+	driver.findElement(By.xpath(".//*[@id='input-enquiry']")).sendKeys("Please add a new product in the cart 1");	
+	
+	driver.findElement(By.xpath(".//*[@id='content']/form/div/div/input")).submit();
+	
+	
+	driver.findElement(By.xpath("html/body/footer/div/div/div[3]/ul/li[1]/a")).click();
+	
+	String expected6="Find Your Favorite Brand";
+	String Actual6=driver.findElement(By.xpath(".//*[@id='content']/h1")).getText();
+	
+	if(expected6.contentEquals(Actual6)){
+		System.out.println("text is verified");
+	}
+	else{
+		System.out.println("text is not verified");
+	}
+	
+	
+	driver.findElement(By.xpath(".//*[@id='content']/div[5]/div/a")).click();
+	
+	
+	String expected7="$1,202.00";
+	String Actual7=driver.findElement(By.xpath(".//*[@id='content']/div[2]/div/div/div[2]/div[1]/p[2]")).getText();
+	
+	if(expected7.contentEquals(Actual7)){
+		System.out.println("Price is verified");
+	}
+	else{
+		System.out.println("Price is not verified");
+	}
+	
+	
+	
+	driver.findElement(By.xpath(".//*[@id='content']/div[2]/div/div/div[2]/div[2]/button[1]")).click();
+	
+	String expected8="Success: You have added Sony VAIO to your shopping cart!";
+	String Actual8=driver.findElement(By.xpath(".//*[@id='product-manufacturer']/div[1]")).getText();
+	
+	if(expected8.contentEquals(Actual8)){
+		System.out.println("Message is verified");
+	}
+	else{
+		System.out.println("Message is not verified");
+	}
+	
+	
+	
+	
+	
+	
+	
+/*	driver.findElement(By.id(".//*[@id='content']/form/div/div/input")).sendKeys("Jitendra");
+	driver.findElement(By.cssSelector("input#txtPassword")).sendKeys("jitendra123");
+	driver.findElement(By.id("txtConfPassword")).sendKeys("jitendra123");
+	driver.findElement(By.xpath(".//*[@id='txtFirstName']")).sendKeys("Jitendra");
+	driver.findElement(By.name("txtLN")).sendKeys("Kushwah");
+	driver.findElement(By.xpath(".//*[@id='rbMale']")).click();
+	
+	driver.findElement(By.name("DtOB")).sendKeys("22/05/1994");
+	
+	driver.findElement(By.name("Email")).sendKeys("jitendra123@igate.com");
+	
+	driver.findElement(By.xpath(".//*[@id='txtAddress']")).sendKeys("Soyat Kalan");
+	
+//	Select drpcity=new Select(driver.findElement(By.name("")))
+	driver.findElement(By.id("txtUserName")).sendKeys("Jitendra");
+	driver.findElement(By.id("txtUserName")).sendKeys("Jitendra");
+	driver.findElement(By.id("txtUserName")).sendKeys("Jitendra");
+	driver.findElement(By.id("txtUserName")).sendKeys("Jitendra");
+	*/
+}
+}

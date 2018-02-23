@@ -1,0 +1,167 @@
+package exam.webdrivers;
+
+
+	
+	
+	
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class webdriverdemo {
+
+	public static WebDriver driver;
+	static String baseUrl;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	    driver = new FirefoxDriver();
+	    baseUrl = "https://demo.opencart.com/";
+	    driver.get(baseUrl + "/");
+	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	  
+	    String expected1="Your Store";
+	    
+	    String actual1=driver.getTitle();
+	    
+	    if(expected1.contentEquals(actual1))
+	    {
+	    	System.out.println("Home Page Title is verified");
+	    }
+	    	else
+	    	{
+	    	System.out.println("Error: Home Page Title is not verified");
+	    	}
+	    
+	    driver.findElement(By.xpath(".//*[@id='top-links']/ul/li[2]/a")).click();
+	    
+	  //  driver.findElement(By.cssSelector(".dropdown-menu.dropdown-menu-right>li>a")).click();
+	    
+	    
+	    driver.findElement(By.xpath(".//*[@id='top-links']/ul/li[2]/ul/li[1]/a")).click();
+	    driver.findElement(By.id("input-firstname")).sendKeys("Jitendra");
+	   // driver.findElement(By.id("input-enquiry")).clear();
+	    driver.findElement(By.name("lastname")).sendKeys("Kushwah");
+	    
+	  //  driver.findElement(By.id("input-email")).sendKeys("kushwah@gmail.com");
+	    
+	   // driver.findElement(By.cssSelector("#input-telephone")).sendKeys("1234567890");
+	  
+	    driver.findElement(By.name("password")).sendKeys("jitendra123");
+	    
+	    
+	    driver.findElement(By.id("input-confirm")).sendKeys("jitendra123");
+	    
+	    
+	    String password =driver.findElement(By.name("password")).getText();
+	    String confpassword=driver.findElement(By.id("input-confirm")).getText();
+	    
+	    if(password.contentEquals(confpassword)){
+	    	System.out.println("password confirmation is verified");
+	    }
+	    else{
+	    	System.out.println("password confirmation is not verified");
+	    }
+	    
+	    driver.findElement(By.className("radio-inline")).click();
+	    
+	    driver.findElement(By.name("agree")).click();
+	    
+	    driver.findElement(By.xpath(".//*[@id='content']/form/div/div/input[2]")).click();
+	    
+	    //driver.findElement(By.cssSelector(".btn.btn-primary")).click();
+	    
+	    driver.switchTo().alert().accept();
+	    
+	    
+	    String expected2="E-Mail Address does not appear to be valid!";
+	    
+	    String actual2=driver.findElement(By.className("text-danger")).getText();
+	    
+	    if(expected2.contentEquals(actual2))
+	    {
+	    	System.out.println("Error Message for Email is verified");
+	    }
+	    	else
+	    	{
+	    	System.out.println("Error Message for Email is not verified");
+	    	}
+	    
+	    
+	    
+	    String expected3="Telephone must be between 3 and 32 characters!";
+	    
+	    String actual3=driver.findElement(By.id("input-telephone")).getText();
+	    
+	    if(expected3.contentEquals(actual3))
+	    {
+	    	System.out.println("Error Message for Telephone is verified");
+	    }
+	    	else
+	    	{
+	    	System.out.println("Error Message for Telephone is not verified");
+	    	}
+	    
+	    
+	    driver.findElement(By.id("input-email")).sendKeys("kushwagmail.com");
+	    
+	    
+	    if((driver.findElement(By.id("input-email")).getText()).contentEquals("@gmail.com")){
+	    	System.out.println("Email Pattern is verified");
+	    }
+	    	else
+	    	{
+	    	System.out.println("Please Enter correct Email Id pattern");
+	    	}
+	    
+	    
+	    driver.findElement(By.cssSelector("#input-telephone")).sendKeys("1234567890");
+	    
+	    if((driver.findElement(By.cssSelector("#input-telephone")).getText()).length()<10){
+	    	System.out.println("please Enter 10 digit no");
+	    }
+	    	else
+	    	{
+	    	System.out.println("Telephone no is verified");
+	    	}
+	    
+	    
+	    driver.findElement(By.id("input-email")).clear();
+	    driver.findElement(By.id("input-email")).sendKeys("kushwah123@gmail.com");
+	  
+	    driver.findElement(By.cssSelector("#input-telephone")).clear();
+	    driver.findElement(By.cssSelector("#input-telephone")).sendKeys("1234567890");
+	    
+	    
+	    driver.findElement(By.xpath(".//*[@id='content']/form/div/div/input[2]")).click();
+	    
+	    
+	    driver.switchTo().alert().accept();
+	    
+	    
+	    String expected4="Your Account Has Been Created!";
+	    
+	    String actual4=driver.findElement(By.xpath(".//*[@id='content']/h1")).getText();
+	    
+	    if(expected4.contentEquals(actual4))
+	    {
+	    	System.out.println("Greeting text is verified");
+	    }
+	    	else
+	    	{
+	    	   	System.out.println("Greeting text is not verified");
+	    	}
+	    
+	    
+	    driver.findElement(By.xpath(".//*[@id='menu']/div[2]/ul/li[6]/a")).click();
+	    
+	    driver.findElement(By.xpath(".//*[@id='content']/div[2]/div[1]/div/div[2]/div[1]/h4/a")).click();
+	    
+	    driver.findElement(By.xpath(".//*[@id='content']/div[2]/div[1]/div/div[2]/div[2]/button[1]")).click();
+	    
+	  
+	    
+	    
